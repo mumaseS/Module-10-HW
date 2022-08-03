@@ -2,15 +2,12 @@
 {
     static ILogger Logger { get; set; }
     static void Main(string[] args)
-    {
-  
-       
+    { 
         Logger = new Logger();
         Summary newSummary = new Summary(Logger); 
 
         var summ = new Summary(Logger);
         summ.Summ();
-
     }
 }
 
@@ -51,8 +48,7 @@ public class Summary : ISumm
     public void Summ()
     {
         Logger.Event("Калькулятор начал работу");
-        
-                        
+                               
         try
         {
             Console.WriteLine("Введите значение переменной а: ");
@@ -65,41 +61,25 @@ public class Summary : ISumm
         }
         catch (OverflowException a) 
         {
-            if (a is OverflowException) Console.WriteLine("Значение за границами диапазона");
-            else Console.WriteLine("что-то случилось");
+            if (a is OverflowException) Logger.Error("Значение за границами диапазона");
+            else Logger.Error("что-то случилось");
         }
-        try
-        {
-
-        }
+        try { }
+      
         catch (OverflowException b)
         {
-            if (b is OverflowException) Console.WriteLine("Значение за границами диапазона");
-            else Console.WriteLine("что-то случилось");
+            if (b is OverflowException) Logger.Error("Значение за границами диапазона");
+            else Logger.Error("что-то случилось");
         }
-        try
-        {
-            
-        }
+        try { }
+        
         catch (OverflowException c)
         {
-            if (c is OverflowException) Console.WriteLine("Значение за границами диапазона");
-            else Console.WriteLine("что-то случилось");
+            if (c is OverflowException) Logger.Error("Значение за границами диапазона");
+            else Logger.Error("что-то случилось");
         }
         
-
         Logger.Event("Калькулятор закончил работу");
-     
-
-        
-        
-        
-     
-
-
-        
-        
-        
 
     }
 }
